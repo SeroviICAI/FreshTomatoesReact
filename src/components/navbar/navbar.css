@@ -1,0 +1,98 @@
+/* General Styles */
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    padding-right: 1em;
+}
+
+.navbar-logo {
+    width: 300px;
+    height: auto;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+/* Search Box Styles */
+.search-box {
+    padding-left: 25px;
+}
+
+/* Nav Link Styles */
+.nav-link {
+    padding: 0em 1em;
+    color: #fff;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #0ea039;
+}
+
+.nav-link.active:hover {
+    color: #0ea039;
+}
+
+/* Authentication Button Styles */
+.auth-button {
+    color: #000;
+    background-color: #0ea039;
+    border-color: #0ea039;
+    min-width: 100px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    transition: transform 0.1s;
+    text-decoration: none;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.auth-button:hover,
+.auth-button:focus {
+    color: #000;
+    background-color: #0ea039;
+    border-color: #0ea039;
+}
+
+.auth-button:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 991px) {
+    .nav-link {
+        padding: 0px 0px 0px 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navbar-brand {
+        padding-right: 0em;
+    }
+
+    .nav-link {
+        padding: 0em;
+    }
+
+    .form-control {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .btn-warning {
+        width: auto;
+    }
+}
+
+.form-inline {
+    display: flex;
+    align-items: center;
+}
