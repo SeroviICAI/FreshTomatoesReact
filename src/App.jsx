@@ -1,22 +1,62 @@
+import React, { Component } from "react";
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/index.css";
 
-import { BrowserRouter } from "react-router-dom";
-
-import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/navBar/NavBar";
 import Footer from "./components/footer/Footer";
 
 import AppRoutes from "./config/AppRoutes";
 
-function App() {
-    return (
-        <BrowserRouter>
-            <NavBar/>
-            <AppRoutes/>
-            <Footer/>
-        </BrowserRouter>
-    );
+class App extends Component {
+    state = {
+        search: "",
+        login: false,
+        changed: false,
+    };
+    
+    handleChange = (e) => {
+        this.setState({ search: e.currentTarget.value, changed: true });
+    };
+    
+    handleClear = () => {
+        document.getElementById("searchForm").reset();
+        this.setState({ search: "" });
+    };
+    
+    handleLogin = (props) => {
+        const { login } = this.state;
+        this.setState({ login: !login });
+        !login && props;
+    };
+
+    render() {
+        const { search, login, changed } = this.state;
+
+        return (
+            <Router>
+                <NavBar
+                    login={login}
+                    onLogout={this.handleLogin}
+                    onChange={this.handleChange}
+                    onClear={this.handleClear}
+                />
+                <div className="container">
+                    <AppRoutes
+                        search={search}
+                        login={login}
+                        changed={changed}
+                        handleLogin={this.handleLogin}
+                        handleChange={this.handleChange}
+                        handleClear={this.handleClear}
+                    />
+                </div>
+                <Footer/>
+            </Router>
+        );
+    }
 }
 
 export default App;

@@ -2,31 +2,33 @@ import React from "react";
 import { Route, Routes } from 'react-router-dom';
 
 import Home from '../pages/Home';
+import SignIn from '../pages/SignIn';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/Detail';
+import NotFound from '../pages/NotFound';
 
-const AppRoutes = () => {
+const AppRoutes = ({ search, login, changed, handleLogin, handleChange, handleClear }) => {
     return (
         <Routes>
             <Route
-                path='/:category/search/:keyword'
+                path="/signin"
+                element= {<SignIn onLogin={(props) => handleLogin(props)} />}
+            />
+            <Route
+                path='/movies'
                 element={<Catalog />}
             />
             <Route
-                path='/:category/:id'
+                path='/movies/:id'
                 element={<Detail />}
             />
+            <Route path="*" element={<NotFound />} />
             <Route
-                path='/:category'
-                element={<Catalog />}
-            />
-            <Route
-                path='/'
+                path="/"
                 element={<Home />}
-                index
             />
         </Routes>
-    )
-}
+    );
+};
 
 export default AppRoutes;
