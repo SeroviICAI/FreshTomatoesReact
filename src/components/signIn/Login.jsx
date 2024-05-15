@@ -24,7 +24,7 @@ const Login = ({ register, onLogin }) => {
     };
     
     return (
-        <div className="container">
+        <div className="row default">
             <h3 className="h3 left-div-heading">
                 Welcome Back
             </h3>

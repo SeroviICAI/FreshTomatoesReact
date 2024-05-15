@@ -2,13 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './movieCard.css';
 
-const MovieCard = props => {
-    const item = props.item
+const MovieCard = ({ item, onClear }) => {
     const link = '/movies/' + item.id;
     const bg = item.poster;
 
     return (
-        <NavLink to={link} className="movie-link">
+        <NavLink className="movie-link" to={link} onClick={onClear}>
             <div className="movie-card" style={{backgroundImage: `url(${bg})`}}>
                 <button className="play-button">
                     <i className="bx bx-play"></i>

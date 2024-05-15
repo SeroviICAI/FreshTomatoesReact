@@ -5,7 +5,7 @@ import MovieCard from '../movieCard/MovieCard';
 import 'swiper/css';
 import './movieList.css';
 
-const MovieList = () => {
+const MovieList = ({ onClear }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const MovieList = () => {
                 {
                     items.map((item, i) => (
                         <SwiperSlide key={i}>
-                            <MovieCard item={item}/>
+                            <MovieCard item={item} onClear={onClear}/>
                         </SwiperSlide>
                     ))
                 }

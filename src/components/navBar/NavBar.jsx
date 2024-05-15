@@ -26,15 +26,14 @@ const NAV_ITEMS = [
 class NavBar extends Component {
     handleLogout = () => {
         logout();
-        this.props.onClear();
         this.props.onLogout();
     }
 
     render() {
-        const { login, onLogout, onSearch, OnClear } = this.props;
+        const { login, onLogout, onSearch, onClear } = this.props;
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <NavLink className="navbar-brand" to="/">
                     <img
                         className="navbar-logo"
@@ -55,7 +54,7 @@ class NavBar extends Component {
                                     data-toggle="collapse"
                                     data-target=".navbar-collapse.show"
                                 >
-                                    <NavLink className="nav-link" to={item.path} onClick={this.props.onClear}>
+                                    <NavLink className="nav-link" to={item.path} onClick={onClear}>
                                         {item.display}
                                     </NavLink>
                                 </li>
@@ -81,7 +80,7 @@ class NavBar extends Component {
                         <NavLink
                             className="auth-button ml-2"
                             to={!login ? "/signin" : "/"}
-                            onClick={login ? this.handleLogout : () => {}}
+                            onClick={login ? this.handleLogout : onClear}
                         >
                             {!login ? "Sign In" : "Sign Out"}
                         </NavLink>

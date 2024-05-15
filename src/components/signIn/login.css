@@ -1,4 +1,12 @@
 /* General Styles */
+.row.default {
+  padding-bottom: 60px;
+}
+
+.row.default hr {
+  color: black;
+}
+
 .login-container {
   padding-top: 0.5rem;
   background: #ffffff;

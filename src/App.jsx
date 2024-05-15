@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from 'react-router-dom';
+import { debounce } from 'lodash';
 
 import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,9 +17,9 @@ class App extends Component {
         login: false,
     };
 
-    handleSearch = (e) => {
-        this.setState({ search: e.currentTarget.value });
-    };
+    handleSearch = debounce((e) => {
+        this.setState({ search: e.target.value });
+    }, 300);
 
     handleClear = () => {
         document.getElementById("searchForm").reset();

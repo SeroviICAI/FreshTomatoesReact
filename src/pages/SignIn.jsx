@@ -29,54 +29,56 @@ class SignIn extends Component {
         const { onLogin } = this.props;
 
         return (
-            <div className="row default">
-                <div className="col-md div-left">
-                    <div className="row neg-margin">
-                        <div className="col-md">
-                            <h3 className="h3 left-div-heading">
-                                Benefits of your free Fresh Tomatoes account
-                            </h3>
+            <div className="container">
+                <div className="row default">
+                    <div className="col-md div-left">
+                        <div className="row neg-margin">
+                            <div className="col-md">
+                                <h3 className="h3 left-div-heading">
+                                    Benefits of your free Fresh Tomatoes account
+                                </h3>
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <div className="left-border">
-                        <h5 className="sub-heading">Personalized Recommendations</h5>
-                    </div>
-                    <p className="sub-script">Discover shows you'll love.</p>
+                        <br />
+                        <div className="left-border">
+                            <h5 className="sub-heading">Personalized Recommendations</h5>
+                        </div>
+                        <p className="sub-script">Discover shows you'll love.</p>
 
-                    <div className="left-border">
-                        <h5 className="sub-heading">Your Ratings</h5>
-                    </div>
-                    <p className="sub-script">
-                    Rate and remember everything you've seen.
-                    </p>
+                        <div className="left-border">
+                            <h5 className="sub-heading">Your Ratings</h5>
+                        </div>
+                        <p className="sub-script">
+                        Rate and remember everything you've seen.
+                        </p>
 
-                    <div className="left-border">
-                        <h5 className="sub-heading">Contribute to Fresh Tomatoes</h5>
+                        <div className="left-border">
+                            <h5 className="sub-heading">Contribute to Fresh Tomatoes</h5>
+                        </div>
+                        <p className="sub-script">
+                        Add data that will be seen by millions of people and get cool
+                        badges.
+                        </p>
+                        <br />
                     </div>
-                    <p className="sub-script">
-                    Add data that will be seen by millions of people and get cool
-                    badges.
-                    </p>
-                    <br />
-                </div>
-                <div className="col-md div-right">
-                    {!this.props.login && login && (
-                        <Login
-                            register={this.handleRegister}
+                    <div className="col-md div-right">
+                        {!this.props.login && login && (
+                            <Login
+                                register={this.handleRegister}
+                                onLogin={onLogin}
+                            />
+                        )}
+                        {this.props.login && (
+                            <UserInfo
                             onLogin={onLogin}
-                        />
-                    )}
-                    {this.props.login && (
-                        <UserInfo
-                        onLogin={onLogin}
-                        />
-                    )}
-                    {register && (
-                        <Register
-                            login={this.handleSignIn}
-                        />
-                    )}
+                            />
+                        )}
+                        {register && (
+                            <Register
+                                login={this.handleSignIn}
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
         );

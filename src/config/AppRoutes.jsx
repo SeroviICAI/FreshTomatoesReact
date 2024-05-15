@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
 import Home from '../pages/Home';
@@ -8,6 +9,14 @@ import Detail from '../pages/Detail';
 import NotFound from '../pages/NotFound';
 
 const AppRoutes = ({ search, login, handleLogin, handleClear }) => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (search !== '') {
+            navigate('/movies');
+        }
+    }, [search, navigate]);
+
     return (
         <Routes>
             <Route
@@ -16,7 +25,7 @@ const AppRoutes = ({ search, login, handleLogin, handleClear }) => {
             />
             <Route
                 path='/movies'
-                element={<Catalog search={search}/>}
+                element={<Catalog search={search} onClear={handleClear}/>}
             />
             <Route
                 path='/movies/:id'
@@ -25,7 +34,7 @@ const AppRoutes = ({ search, login, handleLogin, handleClear }) => {
             <Route path="*" element={<NotFound />} />
             <Route
                 path="/"
-                element={<Home />}
+                element={<Home onClear={handleClear}/>}
             />
         </Routes>
     );

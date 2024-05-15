@@ -45,7 +45,7 @@ const UserInfo = ({onLogin}) => {
     };
 
     return (
-        <div className="container">
+        <div className="row default">
             <h3 className="h3 left-div-heading">
                 User Info
             </h3>
@@ -58,7 +58,10 @@ const UserInfo = ({onLogin}) => {
                     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     <button type="submit" disabled={isSubmitting}>Update data</button>
                 </form>
-                <button onClick={handleDelete}>Delete user</button>
+                <hr/>
+                <form onSubmit={handleDelete} className="login-form">
+                    <button type="submit">Delete user</button>
+                </form>
             </div>
         </div>
     );

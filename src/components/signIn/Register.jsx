@@ -24,7 +24,7 @@ const Register = ({ login }) => {
     };
 
     return (
-        <div className="container">
+        <div className="row default">
             <h3 className="h3 left-div-heading">
                 Register
             </h3>
