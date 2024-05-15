@@ -5,13 +5,18 @@ import MovieCard from '../movieCard/MovieCard';
 import 'swiper/css';
 import './movieList.css';
 
-const MovieList = ({ onClear }) => {
+const MovieList = ({ onClear, ordering }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const getList = async () => {
             let response = null;
-            response = await getMoviesList({});
+            let params = {};
+            if (ordering) {
+                params["ordering"] = ordering
+            };
+            console.log(params);
+            response = await getMoviesList(params);
             setItems(response.results);
         }
         getList();

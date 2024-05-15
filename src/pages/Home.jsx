@@ -10,7 +10,7 @@ const Home = ({ onClear }) => {
                 <h5 className="sub-heading">Fan Favorites</h5>
             </div>
             <p className="sub-script">The top rated movies in our website</p>
-            <MovieList onClear={onClear}/>
+            <MovieList onClear={onClear} ordering={"-userRating"}/>
             <h3 className="margin-bottom-10">Popular Movies</h3>
             <MovieList onClear={onClear}/>
         </div>

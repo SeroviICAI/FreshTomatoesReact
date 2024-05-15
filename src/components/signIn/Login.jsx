@@ -18,6 +18,7 @@ const Login = ({ register, onLogin }) => {
             navigate("/");
         } catch (error) {
             console.error("Error logging in", error);
+            window.alert("Error loggin in. Check your credentials.");
         } finally {
             setIsSubmitting(false);
         }

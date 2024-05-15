@@ -39,6 +39,7 @@ const UserInfo = ({onLogin}) => {
             updateUserData(data)
         } catch (error) {
             console.error("Error updating data", error);
+            window.alert('Error updating data.');
         } finally {
             setIsSubmitting(false);
         }

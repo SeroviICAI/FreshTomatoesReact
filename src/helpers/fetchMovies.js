@@ -1,9 +1,13 @@
 const API_URL = "https://freshtomatoesapi.onrender.com";
 
-export const getMoviesList = async ({ search, url = `${API_URL}/movies` }) => {
+export const getMoviesList = async ({ search, ordering, url = `${API_URL}/movies` }) => {
     if (search){
         url = `${url}?search=${encodeURIComponent(search)}`
     }
+    if (ordering){
+        url = `${url}?ordering=${ordering}`
+    }
+    console.log(url)
     const response = await fetch(url, {credentials:"include"});
     if (response.ok) {
         return await response.json();
