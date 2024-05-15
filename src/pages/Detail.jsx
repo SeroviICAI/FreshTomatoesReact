@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieByid } from "../helpers/fetchMovies";
+import MovieDetail from "../components/movies/movieDetail/MovieDetail";
 
 const Detail = () => {
     const { id } = useParams();
@@ -19,7 +20,7 @@ const Detail = () => {
 
     return (
         <div>
-            {item ? <pre>{JSON.stringify(item, null, 2)}</pre> : 'Loading...'}
+            {item ? <MovieDetail movie={item} /> : 'Loading...'}
         </div>
     );
 }

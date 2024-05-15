@@ -10,7 +10,7 @@ const Home = () => {
                 <h5 className="sub-heading">Fan Favorites</h5>
             </div>
             <p className="sub-script">The top rated movies in our website</p>
-            <MovieList type="userRating" page="1" />
+            <MovieList/>
             <h3 className="margin-bottom-10">List of Movies</h3>
         </div>
     );
