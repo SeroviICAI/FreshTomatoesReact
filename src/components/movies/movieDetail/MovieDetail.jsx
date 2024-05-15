@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import './movieDetail.css';
 
 const MovieDetail = ({ movie }) => {
@@ -57,7 +56,6 @@ const MovieDetail = ({ movie }) => {
                     <strong>Rating: </strong><span>{movie.rating.rating}</span>
                 </p>
             </div>
-            <NavLink to='/'><button>Volver al inicio</button></NavLink>
         </div>
     )
 }
