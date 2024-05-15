@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './footer.css';
-import an_amazon_company from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.png";
 
 const SOCIAL_MEDIA_LINKS = [
   { href: "/", icon: "fa-facebook-square" },
@@ -47,7 +47,7 @@ const Footer = () => {
                 </div>
                 <img
                     width="200px"
-                    src={an_amazon_company}
+                    src={logo}
                 />
                 <div className="footer-copyright text-center">
                 <span className="copyright">© 1990-{year} by</span>
