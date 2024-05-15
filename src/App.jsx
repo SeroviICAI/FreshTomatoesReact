@@ -14,13 +14,12 @@ class App extends Component {
     state = {
         search: "",
         login: false,
-        changed: false,
     };
-    
-    handleChange = (e) => {
-        this.setState({ search: e.currentTarget.value, changed: true });
+
+    handleSearch = (e) => {
+        this.setState({ search: e.currentTarget.value });
     };
-    
+
     handleClear = () => {
         document.getElementById("searchForm").reset();
         this.setState({ search: "" });
@@ -33,23 +32,21 @@ class App extends Component {
     };
 
     render() {
-        const { search, login, changed } = this.state;
+        const { search, login } = this.state;
 
         return (
             <Router>
                 <NavBar
                     login={login}
                     onLogout={this.handleLogin}
-                    onChange={this.handleChange}
+                    onSearch={this.handleSearch}
                     onClear={this.handleClear}
                 />
                 <div className="container">
                     <AppRoutes
                         search={search}
                         login={login}
-                        changed={changed}
                         handleLogin={this.handleLogin}
-                        handleChange={this.handleChange}
                         handleClear={this.handleClear}
                     />
                 </div>

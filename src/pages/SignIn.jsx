@@ -4,6 +4,7 @@ import Login from "../components/signIn/Login";
 import Register from "../components/signIn/Register";
 
 import "../styles/signIn.css";
+import UserInfo from "../components/signIn/UserInfo";
 
 class SignIn extends Component {
     state = {
@@ -18,6 +19,10 @@ class SignIn extends Component {
     handleRegister = () => {
         this.setState({ login: false, register: true});
     };
+
+    handleLogIn = () => {
+        this.setState({login: false, register: false})
+    }
 
     render() {
         const { login, register } = this.state;
@@ -56,10 +61,15 @@ class SignIn extends Component {
                     <br />
                 </div>
                 <div className="col-md div-right">
-                    {login && (
+                    {!this.props.login && login && (
                         <Login
                             register={this.handleRegister}
                             onLogin={onLogin}
+                        />
+                    )}
+                    {this.props.login && (
+                        <UserInfo
+                        onLogin={onLogin}
                         />
                     )}
                     {register && (

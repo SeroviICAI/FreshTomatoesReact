@@ -1,9 +1,10 @@
 import React from "react";
+import MovieGrid from "../components/movies/movieGrid/MovieGrid";
 
-const Catalog = () => {
+const Catalog = ({search}) => {
     return (
         <div>
-            Catalog
+            <MovieGrid search={search}/>
         </div>
     );
 }

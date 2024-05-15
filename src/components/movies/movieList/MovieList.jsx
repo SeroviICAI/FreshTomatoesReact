@@ -11,7 +11,7 @@ const MovieList = () => {
     useEffect(() => {
         const getList = async () => {
             let response = null;
-            response = await getMoviesList();
+            response = await getMoviesList({});
             setItems(response.results);
         }
         getList();

@@ -31,7 +31,7 @@ class NavBar extends Component {
     }
 
     render() {
-        const { login, onLogout, onChange, OnClear } = this.props;
+        const { login, onLogout, onSearch, OnClear } = this.props;
 
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -69,9 +69,15 @@ class NavBar extends Component {
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
-                                onChange={onChange}
+                                onChange={onSearch}
                             />
                         </form>
+                        {login && <NavLink
+                            className="auth-button ml-2"
+                            to={login ? "/signin" : "/"}
+                        >
+                            View Profile
+                        </NavLink>}
                         <NavLink
                             className="auth-button ml-2"
                             to={!login ? "/signin" : "/"}

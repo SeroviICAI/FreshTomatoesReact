@@ -7,16 +7,16 @@ import Catalog from '../pages/Catalog';
 import Detail from '../pages/Detail';
 import NotFound from '../pages/NotFound';
 
-const AppRoutes = ({ search, login, changed, handleLogin, handleChange, handleClear }) => {
+const AppRoutes = ({ search, login, handleLogin, handleClear }) => {
     return (
         <Routes>
             <Route
                 path="/signin"
-                element= {<SignIn onLogin={(props) => handleLogin(props)} />}
+                element= {<SignIn login={login} onLogin={(props) => handleLogin(props)}/>}
             />
             <Route
                 path='/movies'
-                element={<Catalog />}
+                element={<Catalog search={search}/>}
             />
             <Route
                 path='/movies/:id'
