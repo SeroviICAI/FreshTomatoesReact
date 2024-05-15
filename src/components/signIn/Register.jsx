@@ -8,14 +8,18 @@ const Register = ({ login }) => {
     const [tel, setTel] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
         try {
             await register(name, username, tel, email, password);
             login();
         } catch (error) {
             console.error("Error registering", error);
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -31,7 +35,7 @@ const Register = ({ login }) => {
                     <input type="tel" placeholder="Telephone" value={tel} onChange={(e) => setTel(e.target.value)} required />
                     <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                    <button type="submit">Register</button>
+                    <button type="submit" disabled={isSubmitting}>Register</button>
                     <a href="#" onClick={login}>Already have an account? Login</a>
                 </form>
             </div>

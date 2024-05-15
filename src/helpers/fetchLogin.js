@@ -7,7 +7,7 @@ export const register = async (name, username, tel, email, password) => {
         body: JSON.stringify({ name, username, tel, email, password })
     });
     if (response.ok) {
-        return response.json();
+        return await response.json();
     } else {
         throw new Error("Error registering");
     }
@@ -26,7 +26,7 @@ export const login = async (username, password) => {
             method: 'GET',
             credentials:"include"
         });
-        return response.json();
+        return await response.json();
     } else {
         throw new Error("Error logging in");
     }
