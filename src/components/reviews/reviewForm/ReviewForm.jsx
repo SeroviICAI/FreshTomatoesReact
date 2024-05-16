@@ -13,6 +13,7 @@ const ReviewForm = ({movieID}) => {
         setIsSubmitting(true);
         try {
             await postReview(movieID, rating, review);
+            window.location.reload()
         } catch (error) {
             console.error("Error adding review.", error);
             if (error.statusCode == 409) {
