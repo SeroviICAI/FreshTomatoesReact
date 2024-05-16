@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieByid, getReviewsByMovie } from "../helpers/fetchMovies";
 import MovieDetail from "../components/movies/movieDetail/MovieDetail";
-import MovieReviews from "../components/movies/movieReviews/MovieReviews";
-import ReviewForm from "../components/movies/reviewForm/ReviewForm";
+import MovieReviews from "../components/reviews/movieReviews/MovieReviews";
+import ReviewForm from "../components/reviews/reviewForm/ReviewForm";
 
 const Detail = () => {
     const { id } = useParams();

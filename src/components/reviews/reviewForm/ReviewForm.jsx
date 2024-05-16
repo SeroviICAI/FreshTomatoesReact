@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './reviewForm.css';
 import { postReview } from '../../../helpers/fetchMovies';
+import ReactStars from "react-rating-stars-component";
 
 const ReviewForm = ({movieID}) => {
     const [review, setReview] = useState("");
@@ -29,9 +30,15 @@ const ReviewForm = ({movieID}) => {
     return (
         <div className="review-container">
             <form onSubmit={handleSubmit} className="review-form">
+                <ReactStars
+                    count={10}
+                    value={rating}
+                    size={24}
+                    activeColor="#0ea039"
+                    onChange={(newRating) => setRating(newRating)}
+                />
                 <textarea placeholder="Type your review..." value={review} onChange={(e) => setReview(e.target.value)} required />
-                <input type="number" min="0" max="10" placeholder="Rating (0-10)" value={rating} onChange={(e) => setRating(e.target.value)} required />
-                <button type="submit" disabled={isSubmitting}>Enviar Revisión</button>
+                <button type="submit" disabled={isSubmitting}>Send Review</button>
             </form>
         </div>
     );

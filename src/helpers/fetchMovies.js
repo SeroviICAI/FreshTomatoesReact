@@ -36,14 +36,12 @@ export const getReviewsByMovie = async (id) => {
 };
 
 export const postReview = async (movie, userRating, comment ) => {
-    console.log(movie, userRating, comment)
     const response = await fetch(`${API_URL}/reviews/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ movie, userRating, comment }),
         credentials:"include"
     });
-    console.log(response)
     if (response.ok) {
         return await response.json();
     } else {

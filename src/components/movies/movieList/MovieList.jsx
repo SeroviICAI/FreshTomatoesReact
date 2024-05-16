@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { SwiperSlide, Swiper } from 'swiper/react';
-import { getMoviesList } from '../../../helpers/fetchMovies';
-import MovieCard from '../movieCard/MovieCard';
-import 'swiper/css';
-import './movieList.css';
+import React, { useState, useEffect } from "react";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { getMoviesList } from "../../../helpers/fetchMovies";
+import MovieCard from "../movieCard/MovieCard";
+import "swiper/css";
+import "./movieList.css";
 
 const MovieList = ({ onClear, ordering }) => {
     const [items, setItems] = useState([]);
@@ -26,7 +26,7 @@ const MovieList = ({ onClear, ordering }) => {
             <Swiper
                 grabCursor={true}
                 spaceBetween={10}
-                slidesPerView={'auto'}
+                slidesPerView={"auto"}
             >
                 {
                     items.map((item, i) => (

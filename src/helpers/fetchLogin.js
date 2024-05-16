@@ -19,7 +19,6 @@ export const register = async (name, username, tel, email, password) => {
 
 export const putUserData = async (name, username, tel, email, password) => {
     const body = JSON.stringify({ name, username, tel, email, password })
-    console.log(body)
     const response = await fetch(`${API_URL}/me`, {
         method: 'put',
         headers: { 'Content-Type': 'application/json' },

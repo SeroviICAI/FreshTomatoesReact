@@ -1,59 +1,51 @@
 import React from 'react';
 import './movieDetail.css';
+import ReactStars from "react-rating-stars-component";
 
 const MovieDetail = ({ movie }) => {
     return (
-        <div className="item-details">
-            <img src={movie.poster} alt={movie.title} />
-            <div className="info">
-                <h2>{movie.title}</h2>
-                <p>
-                    <strong>Year: </strong><span>{movie.year}</span>
-                </p>
-                <p>
-                    <strong>Runtime: </strong><span>{movie.runtime}</span>
-                </p>
-                <p>
-                    <strong>User Rating: </strong><span>{movie.userRating}</span>
-                </p>
-                <p>
-                    <strong>Votes: </strong> <span>{movie.votes}</span>
-                </p>
+        <div className="movie-content">
+            <div className="movie-content-poster">
+                <img src={movie.poster} alt={movie.title} />
+            </div>
+            <div className="movie-content-info description-box">
+                <h1 className="title">
+                    {movie.title}
+                </h1>
+                <div className="genres">
+                    {movie.genres.map((genre, index) => {
+                        return <span key={index} className="genres__item">{genre.genre}</span>
+                    })}
+                </div>
                 <p>
                     <strong>Directors: </strong>
                     {movie.directors.map((director, index) => {
-                        if (index === movie.directors.length - 1) {
-                            return <span key={director.id}>{director.name}.</span>
-                        } else {
-                            return <span key={director.id}>{director.name}, </span>
-                        }
-                    }
-                )}
+                        return <span key={director.id}>{director.name}{index !== movie.directors.length - 1 && ", "}</span>
+                    })}
                 </p>
                 <p>
                     <strong>Cast: </strong>
                     {movie.cast.map((actor, index) => {
-                        if (index === movie.cast.length - 1) {
-                            return <span key={actor.id}>{actor.name}.</span>
-                        } else {
-                            return <span key={actor.id}>{actor.name}, </span>
-                        }
-                    }
-                )}
+                        return <span key={actor.id}>{actor.name}{index !== movie.cast.length - 1 && ", "}</span>
+                    })}
                 </p>
                 <p>
-                    <strong>Genres: </strong>
-                    {movie.genres.map((genre, index) => {
-                        if (index === movie.genres.length - 1) {
-                            return <span key={genre.id}>{genre.genre}.</span>
-                        } else {
-                            return <span key={genre.id}>{genre.genre}, </span>
-                        }
-                    }
-                )}
+                    <strong>Year: </strong>{movie.year} | 
+                    <strong> Runtime: </strong>{movie.runtime} min
                 </p>
+                <div className="user-rating">
+                    <strong>User Rating: </strong>
+                    <ReactStars
+                        count={5}
+                        value={movie.userRating / 2}
+                        size={24}
+                        activeColor="#0ea039"
+                        isHalf={true}
+                        edit={false}
+                    />
+                </div>
                 <p>
-                    <strong>Rating: </strong><span>{movie.rating.rating}</span>
+                    <strong>Votes: </strong> <span>{movie.votes}</span>
                 </p>
             </div>
         </div>
