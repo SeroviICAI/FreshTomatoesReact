@@ -1,0 +1,54 @@
+/* General Styles */
+.div-left {
+    background: #343a40;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+
+.neg-margin {
+    margin-top: -2px;
+}
+
+.rocket {
+    width: 5em;
+}
+
+.left-div-heading {
+    color: #0ea039;
+    margin-top: 50px;
+}
+
+.div-right {
+    background: #ffffff;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    opacity: 0.95;
+}
+
+.invalid-prepapp {
+    border-color: #dc3545 !important;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .div-left,
+    .div-right {
+    border-radius: 0px;
+    }
+
+    .left-div-heading {
+    margin-top: 5% !important;
+    }
+
+    .splitscreen .right-content {
+    max-width: 47% !important;
+    }
+}

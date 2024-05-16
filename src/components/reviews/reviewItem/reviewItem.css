@@ -1,0 +1,40 @@
+/* General Review Styles */
+.review-item {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 5px solid #0ea039;
+    transition: all .2s linear;
+    height: 200px;
+    overflow: auto;
+}
+
+.review-item:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0px 5px 0px #cbc0c0;
+}
+
+/* General Styles */
+.top {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top ul {
+    display: flex;
+    list-style: none;
+}
+
+.top ul li {
+    padding-left: 4px;
+}
+
+article p {
+    font-size: 15px;
+    font-weight: 100;
+    margin-bottom: 1rem;
+    font-family: system-ui;
+}

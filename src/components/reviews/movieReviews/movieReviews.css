@@ -1,0 +1,15 @@
+/* General Movie Reviews Style */
+.movie-reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1260px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+}
+
+.review-info {
+    text-align: center;
+    width: 43%;
+}

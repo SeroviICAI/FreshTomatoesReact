@@ -1,0 +1,41 @@
+/* General Form Styles */
+.review-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1260px;
+}
+
+.review-form textarea {
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.review-form button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #0ea039;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

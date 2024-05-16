@@ -1,0 +1,63 @@
+/* General Movie Styles */
+.movie-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1260px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 40px;
+}
+
+/* Poster Styles */
+.movie-content-poster {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.movie-content-poster img {
+    border-radius: 30px;
+}
+
+/* Movie Info Styles */
+.movie-content-info {
+    flex: 2;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.movie-content-info > * {
+    margin-bottom: 2rem;
+}
+
+.movie-content-info .title {
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.movie-content-info .genres > * {
+    margin-left: 0.5rem;
+}
+
+.movie-content-info .genres__item {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: #0f0f0f;
+}
+
+/* User Rating Styles */
+.user-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Description Box Styles */
+.description-box {
+    padding: 20px;
+    border-radius: 30px;
+    border: 5px solid #0ea039;
+}
