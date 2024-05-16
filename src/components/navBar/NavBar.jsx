@@ -74,6 +74,7 @@ class NavBar extends Component {
                         {login && <NavLink
                             className="auth-button ml-2"
                             to={login ? "/signin" : "/"}
+                            onClick={onClear}
                         >
                             View Profile
                         </NavLink>}
