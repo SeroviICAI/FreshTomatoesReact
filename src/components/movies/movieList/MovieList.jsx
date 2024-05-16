@@ -15,7 +15,6 @@ const MovieList = ({ onClear, ordering }) => {
             if (ordering) {
                 params["ordering"] = ordering
             };
-            console.log(params);
             response = await getMoviesList(params);
             setItems(response.results);
         }

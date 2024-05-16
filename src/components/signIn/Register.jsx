@@ -18,7 +18,12 @@ const Register = ({ login }) => {
             login();
         } catch (error) {
             console.error("Error registering", error);
-            window.alert("Error registering. Check your data, ensure you are not registered and try a new username.");
+            if (error.statusCode == 409){
+                window.alert("Email already registered.")
+            }
+            else{
+                window.alert("Error registering. Check your data and try a new username.");                
+            }
         } finally {
             setIsSubmitting(false);
         }

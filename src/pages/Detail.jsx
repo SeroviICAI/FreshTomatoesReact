@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getMovieByid, getReviewsByMovie } from "../helpers/fetchMovies";
 import MovieDetail from "../components/movies/movieDetail/MovieDetail";
 import MovieReviews from "../components/movies/movieReviews/MovieReviews";
+import ReviewForm from "../components/movies/reviewForm/ReviewForm";
 
 const Detail = () => {
     const { id } = useParams();
@@ -30,6 +31,7 @@ const Detail = () => {
         <div>
             {item ? <MovieDetail movie={item} /> : 'Loading...'}
             {reviews ? <MovieReviews reviews={reviews} /> : 'Loading reviews...'}
+            {item ? <ReviewForm movieID={item.id}/>: ''}
         </div>
     );
 }

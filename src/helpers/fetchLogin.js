@@ -1,15 +1,19 @@
+import ErrorWithCode from './customErrors.js'
+
+
 const API_URL = "https://freshtomatoesapi.onrender.com/users";
 
 export const register = async (name, username, tel, email, password) => {
     const response = await fetch(`${API_URL}/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, username, tel, email, password })
+        body: JSON.stringify({ name, username, tel, email, password }),
+        credentials:"include"
     });
     if (response.ok) {
         return await response.json();
     } else {
-        throw new Error("Error registering");
+        throw new ErrorWithCode("Error registering", response.status);
     }
 };
 
@@ -22,6 +26,9 @@ export const putUserData = async (name, username, tel, email, password) => {
         body, credentials:"include"});
     if (response.ok){
         return await response.json();
+    }
+    else {
+        throw new ErrorWithCode("Error updating", response.status);
     }
 };
 
@@ -43,7 +50,7 @@ export const login = async (username, password) => {
     if (response.ok) {
         return;
     } else {
-        throw new Error("Error logging in");
+        throw new ErrorWithCode("Error logging in", response.status);
     }
 };
 
@@ -55,7 +62,7 @@ export const logout = async () => {
     if (response.ok) {
         return;
     } else {
-        throw new Error("Error logging out");
+        throw new ErrorWithCode("Error loggin out", response.status);
     }
 };
 
@@ -67,6 +74,6 @@ export const deleteUser = async () => {
     if (response.ok) {
         return;
     } else {
-        throw new Error("Error deleting user");
+        throw new ErrorWithCode("Error deleting user", response.status);
     }
 };
