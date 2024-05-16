@@ -5,12 +5,13 @@ import "./movieReviews.css";
 import "swiper/css";
 
 const MovieReviews = ({ reviews }) => {
+    const slidesPerView = reviews.length < 4 ? reviews.length : 4;
     return (
         <div className="movie-reviews">
             <Swiper
                 grabCursor={true}
                 spaceBetween={10}
-                slidesPerView={4}
+                slidesPerView={slidesPerView}
             >
                 {reviews.map((review) => {
                     return (

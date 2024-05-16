@@ -36,8 +36,8 @@ const MovieDetail = ({ movie }) => {
                 <div className="user-rating">
                     <strong>User Rating: </strong>
                     <ReactStars
-                        count={5}
-                        value={movie.userRating / 2}
+                        count={10}
+                        value={movie.userRating}
                         size={24}
                         activeColor="#0ea039"
                         isHalf={true}
