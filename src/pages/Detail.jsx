@@ -11,6 +11,8 @@ const Detail = () => {
 
     const [item, setItem] = useState(null);
     const [reviews, setReviews] = useState(null);
+    const [newReview, setNewReview] = useState(false);
+
 
     useEffect(() => {
         const getDetail = async () => {
@@ -25,13 +27,13 @@ const Detail = () => {
         }
         getDetail();
         getReviews();
-    }, [id]);
+    }, [id, newReview]);
 
     return (
         <div>
             {item ? <MovieDetail movie={item} /> : 'Loading...'}
             {reviews ? <MovieReviews reviews={reviews} /> : 'Loading reviews...'}
-            {item ? <ReviewForm movieID={item.id}/>: ''}
+            {item ? <ReviewForm movieID={item.id} setNewReview={setNewReview} />: ''}
         </div>
     );
 }

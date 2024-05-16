@@ -3,17 +3,21 @@ import './reviewForm.css';
 import { postReview } from '../../../helpers/fetchMovies';
 import ReactStars from "react-rating-stars-component";
 
-const ReviewForm = ({movieID}) => {
+
+const ReviewForm = ({movieID, setNewReview}) => {
     const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    setNewReview(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         try {
             await postReview(movieID, rating, review);
-            window.location.reload()
+            setNewReview(true);
+            setRating(0);
+            setReview("")
         } catch (error) {
             console.error("Error adding review.", error);
             if (error.statusCode == 409) {
